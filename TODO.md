@@ -5,6 +5,10 @@ TODO
 
 Test behaviour of nil wrt lists/null/false
 
+Do we care that this doesn't work?  Don't really want to make false
+anything but nil, esp. since we aren't using nil for empty lists (are we?)
+`(dual "[\"~#\'\",false]" 'false)`
+
 Do we need better than ms granularity on timestamps?
 
 arbitrary decimal PRINTING DOES NOT APPEAR TO WORK ON LW6 OR CCL.  Check rep call.
@@ -36,15 +40,11 @@ Writing floats using ~F or can/should we use exp notation for floats?
 Check this is good enough, optional
 `(find-method #'yason:encode '() (mapcar #'find-class '(float)))`
 
-Do we care that this doesn't work?  Don't really want to make false
-anything but nil, esp. since we aren't using nil for empty lists (are we?)
-`(dual "[\"~#\'\",false]" 'false)`
-
 `#\x`...
 
 Check for places where I have assumed strings have at least one char...
 
 Support "disable write caching"?
 
-What is going on with '"{\"~#'\":\"~f-1.1E-1\"}"' and
+What is going on with `"{\"~#'\":\"~f-1.1E-1\"}"` and
 `"[\"^ \",\"~/t\",null]"`?
