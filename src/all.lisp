@@ -41,10 +41,10 @@
        ((value :type ,type
                :initarg :value
                :reader value)))
-     
+
      (defun ,(symbolicate 'make- name) (value)
        (make-instance ',name :value value))
-     
+
      (defmethod print-object ((object ,name) stream)
        (print-unreadable-object (object stream :type t)
          (prin1 (slot-value object 'value) stream)))
@@ -57,7 +57,7 @@
 (def-box-type octet-vector (vector octet))
 
 (defun make-bytes (list)
-  (make-octet-vector 
+  (make-octet-vector
    (make-array (length list) :element-type 'octet :initial-contents list)))
 
 ;;; arbitrary decimals
@@ -80,7 +80,7 @@ for printing arbitrary decimals.")
 
 ;;; local-time
 
-(defparameter *rfc3339-format* 
+(defparameter *rfc3339-format*
   '((:year 4) #\- (:month 2) #\- (:day 2)
     #\T
     (:hour 2) #\: (:min 2) #\: (:sec 2) #\. (:msec 3)
@@ -479,7 +479,7 @@ appropriate Common Lisp object indicated by TAG."))
 
 ;;; Composite, ground
 
-;; array is inherent to parse-array 
+;; array is inherent to parse-array
 
 ;; map is inherent to parse-map but we also need to read the
 ;; array-as-map format
