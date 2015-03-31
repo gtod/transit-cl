@@ -1,5 +1,5 @@
 transit-cl
-===============
+==========
 
 ## What is it?
 
@@ -16,7 +16,7 @@ been done on documentation.
 
 I recognize that the use of the name `transit-cl` is somewhat
 presumptious, it represents an optimisim about making this a community
-implementation.  I will happily release it upon request.  
+implementation.  I will happily release it upon request.
 
 ## Quickstart
 
@@ -40,6 +40,9 @@ Clone this repo to your `~/quicklisp/local-projects` directory, then:
                            (make-point :x 1.1 :y 2.2)))
 "[[\"^ \",\"ben\",11,\"bill\",10],[\"~#set\",[1,\"~:THREE\",\"~$TWO\",\"four\"]],[\"~#list\",[1,2,3]],\"~i98765432123456789\",2.7182817,\"~bQUJD\",\"~m1427774432906\",\"~f123456789.123456789\",\"~u9d3d4b49-c2de-4127-8060-abb4f14da0b8\",[\"~#point\",[1.1,2.2]]]"
 
+(princ *)
+[["^ ","ben",11,"bill",10],["~#set",[1,"~:THREE","~$TWO","four"]],["~#list",[1,2,3]],"~i98765432123456789",2.7182817,"~bQUJD","~m1427777100568","~f123456789.123456789","~u21801e12-6c37-4247-be24-7aaa8622972f",["~#point",[1.1,2.2]]]
+
 (transit-read *)
 #(#{| ("ben" 11) ("bill" 10) |} #{ 1 :THREE TWO "four" } (1 2 3)
   98765432123456789 2.7182817 #<OCTET-VECTOR #(65 66 67)>
@@ -54,7 +57,7 @@ just a few other quicklisp libraries such as Fset.
 ## Tests
 
 ```
-(ql:quickload :transit-cl)
+(ql:quickload :transit-cl-test)
 (in-package :transit-cl)
 (5am:run! :basic)
 ```
