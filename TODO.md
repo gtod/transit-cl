@@ -3,12 +3,6 @@ TODO
 
 ## Issues
 
-Test behaviour of nil wrt lists/null/false
-
-Do we care that this doesn't work?  Don't really want to make false
-anything but nil, esp. since we aren't using nil for empty lists (are we?)
-`(dual "[\"~#\'\",false]" 'false)`
-
 Do we need better than ms granularity on timestamps?
 
 arbitrary decimal PRINTING DOES NOT APPEAR TO WORK ON LW6 OR CCL.  Check rep call.
@@ -17,9 +11,9 @@ Just what is a cmap?  Have we got the tag method defn right?  scalar-p
 
 When reading floats should we use `*read-default-float-format*` to read doubles?
 
-HYPOTHESIS: It does not make sense to define/use rep on ground types...
+Implement links.
 
-TODO: link
+Implement scalar extensions: `#\x`
 
 Is it an issue that rep and tag and reader etc. are not in one
 place...?  Well, we do an example of defining a scalar and composite
@@ -39,8 +33,6 @@ Better names for constants...
 Writing floats using ~F or can/should we use exp notation for floats?
 Check this is good enough, optional
 `(find-method #'yason:encode '() (mapcar #'find-class '(float)))`
-
-`#\x`...
 
 Check for places where I have assumed strings have at least one char...
 
