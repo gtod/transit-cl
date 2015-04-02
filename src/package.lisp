@@ -5,7 +5,15 @@
                 #:domain #:with-first #:empty-map #:lookup #:@ #:empty?
                 #:iterator #:do-seq #:equal? #:size #:arb)
   (:shadowing-import-from :fset #:map #:set #:notany #:some #:every #:includef)
-  
-  (:export #:make-bytes
+  (:export #:vec
+           #:make-quoted-value
+           #:make-bytes
            #:make-decimal
-           ))
+           #:make-point
+           #:transit-write
+           #:transit-write-string
+           #:transit-read
+           #:verbosely
+           #:true
+           #:false)
+  (:documentation "Cognitect's transit-format for Common Lisp."))
