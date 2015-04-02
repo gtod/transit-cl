@@ -48,3 +48,7 @@ Support "disable write caching"?
 
 What is going on with `"{\"~#'\":\"~f-1.1E-1\"}"` and
 `"[\"^ \",\"~/t\",null]"`?
+
+Fix this mess:
+(remove-method #'yason:encode (find-method #'yason:encode '() (mapcar #'find-class '(float))))
+and the associated float printing issues.
