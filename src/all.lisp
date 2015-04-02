@@ -272,7 +272,7 @@ string format."
   (make-instance 'composite-tag :name name))
 
 (defmethod tag ((tag composite-tag))
-  (ensure-symbol (slot-value tag 'name)))
+  (ensure-symbol (slot-value tag 'name) :transit-cl))
 
 (defun quoted-tag-p (tag)
   (and (characterp tag)
@@ -408,7 +408,7 @@ appropriate Common Lisp object indicated by TAG."))
 
 (defun parse-array (vector)
   (if (map-as-array-p vector)
-      (reader (ensure-symbol +map-as-array-tag+) (vector-rest vector))
+      (reader (ensure-symbol +map-as-array-tag+ :transit-cl) (vector-rest vector))
       (if (composite-tagged-p vector)
           (reader (tag (aref vector 0)) (aref vector 1))
           vector)))
