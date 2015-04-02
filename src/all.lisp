@@ -253,9 +253,9 @@ string format."
 (defgeneric tag (value)
   (:documentation "Return the transit tag for VALUE."))
 
-(defmacro def-simple-tag (method-specializer tag-string)
+(defmacro def-simple-tag (method-specializer tag)
   `(defmethod tag ((value ,method-specializer))
-     ,tag-string))
+     ,tag))
 
 (defclass map-as-array-tag () ())
 
