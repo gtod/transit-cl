@@ -380,7 +380,7 @@ appropriate Common Lisp object indicated by TAG."))
     (and (= 1 (size map))
          (typep (arb map) 'composite-tag)))
   (:method ((vector vector))
-    (and (aref vector 0)
+    (and (plusp (length vector))
          (typep (aref vector 0) 'composite-tag))))
 
 (defun map-as-array-p (vector)
