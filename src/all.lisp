@@ -75,6 +75,7 @@ for printing arbitrary decimals.")
   (make-arbitrary-decimal (wu-decimal:parse-decimal string)))
 
 (defmethod print-object :around ((object arbitrary-decimal) stream)
+  (declare (ignore stream))
   (let ((*print-pprint-dispatch* *transit-pprint-dispatch*))
     (call-next-method)))
 
@@ -677,6 +678,7 @@ appropriate Common Lisp object indicated by TAG."))
   (image #'marshall seq))
 
 (defmethod emit-ground ((tag (eql '|map|)) (map fset:map) key-p)
+  (declare (ignore key-p))
   (if *verbose-p*
       (image (lambda (key value)
                (values (marshall key :key-p t)
@@ -748,7 +750,7 @@ appropriate Common Lisp object indicated by TAG."))
     return-value))
 
 ;; Replace
-(find-method #'yason:encode '() (mapcar #'find-class '(float)))
+(remove-method #'yason:encode (find-method #'yason:encode '() (mapcar #'find-class '(float))))
 (defmethod encode ((object float) &optional (stream *standard-output*))
   (princ object stream))
 
