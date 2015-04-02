@@ -11,9 +11,9 @@
 (defvar *verbose-p* nil
   "Set true to use transit's verbose JSON output mode.")
 
-(defmacro verbosely (&rest forms)
+(defmacro verbosely (form)
   `(let ((*verbose-p* t))
-     ,@forms))
+     ,form))
 
 ;;;; util
 

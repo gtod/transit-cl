@@ -19,12 +19,13 @@
   (dual "[[\"^ \",\"foobar\",\"foobar\"],[\"^ \",\"^0\",\"foobar\"]]"
          (vec (map ("foobar" "foobar")) (map ("foobar" "foobar"))))
   (verbosely
-   (dual "{\"foo\":\"bar\"}" (map ("foo" "bar")))
-   (dual "[{\"foobar\":\"foobar\"},{\"foobar\":\"foobar\"}]"
-          (vec (map ("foobar" "foobar")) (map ("foobar" "foobar"))))
-   (let ((stamp "2015-01-02T14:14:14.987Z"))
-     (dual (format nil "{\"~~#'\":\"~~t~A\"}" stamp)
-           (parse-rfc3339-timestring stamp)))))
+   (progn
+     (dual "{\"foo\":\"bar\"}" (map ("foo" "bar")))
+     (dual "[{\"foobar\":\"foobar\"},{\"foobar\":\"foobar\"}]"
+           (vec (map ("foobar" "foobar")) (map ("foobar" "foobar"))))
+     (let ((stamp "2015-01-02T14:14:14.987Z"))
+       (dual (format nil "{\"~~#'\":\"~~t~A\"}" stamp)
+             (parse-rfc3339-timestring stamp))))))
 
 (test reader
   (verbosely (dual "{\"foo\":\"bar\"}" (map ("foo" "bar")))))
