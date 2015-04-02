@@ -8,4 +8,5 @@
   ((:module "t"
     :serial t
     :components ((:file "package")
-                 (:file "tests")))))
+                 (:file "transit")
+                 (:file "implementation")))))
