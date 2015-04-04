@@ -333,9 +333,9 @@ string format."
 (def-simple-tag fset:seq '|array|)
 
 (defmethod tag ((map fset:map))
-  (if (some (complement #'scalar-type-p) (domain map))
-      '|cmap|
-      '|map|))
+  (if (every #'scalar-type-p (domain map))
+      '|map|
+      '|cmap|))
 
 ;;; Composite extension
 
