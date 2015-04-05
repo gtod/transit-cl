@@ -13,6 +13,7 @@
            #:transit-write
            #:transit-write-string
            #:transit-read
+           #:roundtrip
            #:verbosely
            #:true
            #:false)
