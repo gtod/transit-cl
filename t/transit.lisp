@@ -1,8 +1,7 @@
-(in-package :transit-cl)
+(in-package :transit-cl-test)
 
-(def-suite :transit-cl)
-(def-suite :basic :in :transit-cl)
-(in-suite :basic)
+(def-suite transit-cl)
+(in-suite transit-cl)
 
 (defun dual (left right)
   (is (string= left (transit-write-string right)))
@@ -43,7 +42,7 @@
   (dual "[\"~:foo\"]" #(:|foo|))
   (dual "[\"~$FOO\"]" #(foo))
   (dual "[\"~$foo\"]" #(|foo|))
-  (dual "[\"~m482196050052\"]" (vec (epoch-msec-to-timestamp 482196050052)))
+  (dual "[\"~m482196050052\"]" (vec (transit-cl::epoch-msec-to-timestamp 482196050052)))
   (dual "[\"~:FOO\",\"~$BAR\"]" #(:foo bar))
   (dual "[\"~$FOO\",\"~:BAR\"]" #(foo :bar))
   (dual "[\"~rhttp://foo.com/\"]" (vec (puri:parse-uri "http://foo.com/")))
@@ -141,7 +140,7 @@
   (dual "[\"~#\'\",\"foo\"]" "foo")
   (dual "[\"~#\'\",true]" t)
   ;; (dual "[\"~#\'\",false]" 'false) ; nil is null...
-  (dual "[\"~#\'\",\"~m0\"]" (epoch-msec-to-timestamp 0))
+  (dual "[\"~#\'\",\"~m0\"]" (transit-cl::epoch-msec-to-timestamp 0))
   (dual "[\"~#\'\",\"~i4953778853208128465\"]" 4953778853208128465)
   (dual "[\"~#\'\",\"~n8987676543234565432178765987645654323456554331234566789\"]"
         8987676543234565432178765987645654323456554331234566789))
