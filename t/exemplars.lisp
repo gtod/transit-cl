@@ -105,14 +105,13 @@
       (setf files (all-matches-as-strings "\\S+\\.json" line)))
     (when (qualified-edn-line-p line)
       (let ((line (edn-common-lisp-replacements line)))
-        (format t "~A~%" line)
         (let ((edn-object (read-edn-object line))
               (transit-object (read-transit-file (transit-file files)))
               (verbose-object (read-transit-file (verbose-file files))))
-          (assert (fset:equal? edn-object transit-object))
-          (assert (fset:equal? edn-object verbose-object)))))))
+          (5am:is (fset:equal? edn-object transit-object))
+          (5am:is (fset:equal? edn-object verbose-object)))))))
 
 ;;;; Interface
 
-(defun test-exemplars ()
+(5am:test exemplars
   (foreach-line-in-file (exemplar-file #p"README.md") #'per-line))
