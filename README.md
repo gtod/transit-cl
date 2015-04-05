@@ -81,9 +81,7 @@ just a few other quicklisp libraries such as Fset.
 ## Tests
 
 ```
-(ql:quickload :transit-cl-test)
-(in-package :transit-cl)
-(5am:run! :transit-cl)
+(asdf:test-system :transit-cl)
 ```
 
 ## Documentation

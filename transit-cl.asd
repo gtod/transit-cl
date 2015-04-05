@@ -16,3 +16,8 @@
     :serial t
     :components ((:file "package")
                  (:file "all")))))
+
+(defmethod perform ((o test-op) (c (eql (find-system :transit-cl))))
+  (declare (ignore o c))
+  (load-system :transit-cl-test)
+  (test-system :transit-cl-test))
