@@ -27,7 +27,7 @@ Clone this repo to your `~/quicklisp/local-projects` directory, then:
 (ql:quickload :transit-cl)
 ```
 
-```
+```common-lisp
 (defpackage :example
   (:use :cl :transit-cl)
   (:shadowing-import-from :fset #:map #:set))
@@ -83,7 +83,7 @@ just a few other quicklisp libraries such as Fset.
 Clone `https://github.com/cognitect/transit-format` somewhere locally,
 so the exemplar tests can be run, like so:
 
-```
+```common-lisp
 (ql:quickload :transit-cl-test)
 (setf transit-cl-exemplars:*exemplars-dir* "/somewhere/transit-format/examples/0.8/simple/")
 (asdf:test-system :transit-cl)
