@@ -7,4 +7,5 @@
 
 (defpackage :transit-cl-exemplars
   (:use :cl :transit-cl :fiveam :named-readtables :alexandria :cl-ppcre
-        :local-time :uuid))
+        :local-time :uuid)
+  (:export #:*exemplars-dir*))

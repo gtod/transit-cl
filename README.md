@@ -80,7 +80,12 @@ just a few other quicklisp libraries such as Fset.
 
 ## Tests
 
+Clone `https://github.com/cognitect/transit-format` somewhere locally,
+so the exemplar tests can be run, like so:
+
 ```
+(ql:quickload :transit-cl-test)
+(setf transit-cl-exemplars:*exemplars-dir* "/somewhere/transit-format/examples/0.8/simple/")
 (asdf:test-system :transit-cl)
 ```
 
